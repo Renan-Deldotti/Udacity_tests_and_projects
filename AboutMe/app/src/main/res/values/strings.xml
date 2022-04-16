@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AboutMe</string>
+    <string name="name_string_placeholder">My name here</string>
+    <string name="yellow_star">Yellow star</string>
+    <string name="bio_textView_placeholder_text">Hi\n\nMy name is John\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta nisl eu ligula ultrices lobortis. Nullam malesuada dignissim quam, sed pulvinar libero pellentesque in. Fusce sollicitudin vestibulum felis, vel dictum leo. Phasellus vel mauris risus. Ut euismod luctus nibh, a laoreet metus viverra id. Praesent dapibus hendrerit augue vel interdum. Morbi sed pellentesque orci. Sed sagittis augue nec elit mollis, ut interdum diam pellentesque. Proin a dolor nunc. Nam tempus convallis massa, et suscipit tellus sodales sit amet. In at ante tincidunt ipsum congue commodo. Nunc tincidunt, nibh eget pretium tristique, purus erat elementum nibh, ut blandit justo erat vitae mi. Proin sit amet tincidunt orci.\n\nVivamus vel sodales orci, a elementum diam. Quisque euismod convallis ornare. Donec ornare euismod aliquam. Nam accumsan at turpis id euismod. Curabitur placerat tincidunt leo eget pretium. Fusce lacus sapien, maximus ut turpis vitae, bibendum tempor ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mi libero, vehicula a lorem vitae, lobortis porta dolor. Aliquam eu elementum arcu, in aliquam nulla. Pellentesque in consequat quam. Sed finibus nec orci eu dapibus. Etiam luctus, massa eget eleifend vehicula, sapien urna ultricies eros, sed tristique ligula lacus eget nisi.</string>
+    <string name="whats_your_nickname">What\'s your nickname</string>
+    <string name="done">Done</string>
+</resources>
