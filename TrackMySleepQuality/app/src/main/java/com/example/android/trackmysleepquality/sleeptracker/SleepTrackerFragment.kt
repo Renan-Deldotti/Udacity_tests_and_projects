@@ -59,6 +59,15 @@ class SleepTrackerFragment : Fragment() {
         val viewModelFactory = SleepTrackerViewModelFactory(dataSource, application)
         // ViewModel
         val viewModel = ViewModelProvider(this, viewModelFactory).get(SleepTrackerViewModel::class.java)
+        // Create and set the RecyclerView adapter
+        val adapter = SleepNightAdapter()
+        binding.sleepList.adapter = adapter
+        viewModel.nights.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.data = it
+            }
+        })
+        // ---
 
         // set the binding to the xml
         binding.sleepTrackerViewModel = viewModel
