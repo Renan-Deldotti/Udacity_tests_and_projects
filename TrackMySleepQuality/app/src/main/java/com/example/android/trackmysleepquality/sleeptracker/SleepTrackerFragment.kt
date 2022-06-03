@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -60,7 +61,9 @@ class SleepTrackerFragment : Fragment() {
         // ViewModel
         val viewModel = ViewModelProvider(this, viewModelFactory).get(SleepTrackerViewModel::class.java)
         // Create and set the RecyclerView adapter
-        val adapter = SleepNightAdapter()
+        val adapter = SleepNightAdapter(SleepNightAdapter.SleepNightListener {
+            viewModel.onSleepNightClicked(it)
+        })
         binding.sleepList.adapter = adapter
         viewModel.nights.observe(viewLifecycleOwner, Observer {
             it?.let {
@@ -77,6 +80,13 @@ class SleepTrackerFragment : Fragment() {
         viewModel.navigateToSleepQuality.observe(viewLifecycleOwner, Observer {
             it?.let {
                 findNavController().navigate(SleepTrackerFragmentDirections.actionSleepTrackerFragmentToSleepQualityFragment(it.nightId))
+            }
+        })
+
+        viewModel.navigateToSleepDataQuality.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                findNavController().navigate(SleepTrackerFragmentDirections.actionSleepTrackerFragmentToSleepDetailFragment(it))
+                viewModel.onSleepDataQualityNavigated()
             }
         })
 
