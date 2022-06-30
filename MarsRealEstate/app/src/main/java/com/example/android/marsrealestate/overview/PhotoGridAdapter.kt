@@ -32,6 +32,29 @@ import com.example.android.marsrealestate.network.MarsProperty
  */
 class PhotoGridAdapter( val onClickListener: OnClickListener ) :
         ListAdapter<MarsProperty, PhotoGridAdapter.MarsPropertyViewHolder>(DiffCallback) {
+
+
+
+    /**
+     * Create new [RecyclerView] item views (invoked by the layout manager)
+     */
+    override fun onCreateViewHolder(parent: ViewGroup,
+                                    viewType: Int): MarsPropertyViewHolder {
+        return MarsPropertyViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+    }
+
+    /**
+     * Replaces the contents of a view (invoked by the layout manager)
+     */
+    override fun onBindViewHolder(holder: MarsPropertyViewHolder, position: Int) {
+        val marsProperty = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(marsProperty)
+        }
+        holder.bind(marsProperty)
+    }
+
+
     /**
      * The MarsPropertyViewHolder constructor takes the binding variable from the associated
      * GridViewItem, which nicely gives it access to the full [MarsProperty] information.
@@ -58,25 +81,6 @@ class PhotoGridAdapter( val onClickListener: OnClickListener ) :
         override fun areContentsTheSame(oldItem: MarsProperty, newItem: MarsProperty): Boolean {
             return oldItem.id == newItem.id
         }
-    }
-
-    /**
-     * Create new [RecyclerView] item views (invoked by the layout manager)
-     */
-    override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): MarsPropertyViewHolder {
-        return MarsPropertyViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
-    }
-
-    /**
-     * Replaces the contents of a view (invoked by the layout manager)
-     */
-    override fun onBindViewHolder(holder: MarsPropertyViewHolder, position: Int) {
-        val marsProperty = getItem(position)
-        holder.itemView.setOnClickListener {
-            onClickListener.onClick(marsProperty)
-        }
-        holder.bind(marsProperty)
     }
 
     /**
